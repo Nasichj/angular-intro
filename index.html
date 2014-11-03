@@ -18,8 +18,26 @@
 
     </head>
     <body>
-        <main class="container">
+        <!add 2 ng elements to main-->
+        <main class="container" ng-app="MovieApp" ng-controller="MoviesController">
             <h1>Movies from 2014</h1>
+
+            <p>{{movies.length}} {{movies.length == 1 ? 'movie' : 'movies'}} movies</p>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Sales</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="movie in movies">
+                        <td>{{movie.title}}</td>
+                        <td>{{movie.grossSales | currency : '$' : 0}}</td>
+                    </tr>
+                </tbody>
+            </table>
 
         </main>
 
